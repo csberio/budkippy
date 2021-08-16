@@ -35,6 +35,8 @@ class _SignInFormState extends State<SignInForm> {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+
     return Form(
         key: _formKey,
         child: Column(
@@ -134,6 +136,7 @@ class _SignInFormState extends State<SignInForm> {
               padding: EdgeInsets.only(left: 25, top: 30, right: 25),
               child: SizedBox(
                 width: double.infinity,
+                height: size.height * 0.05,
                 child: TextButton(
                   style: ButtonStyle(
                     backgroundColor:
@@ -159,10 +162,14 @@ class _SignInFormState extends State<SignInForm> {
                 ),
               ),
             ),
+            SizedBox(
+              height: size.height * 0.02,
+            ),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 25, vertical: 5),
               child: SizedBox(
                 width: double.infinity,
+                height: size.height * 0.05,
                 child: OutlinedButton(
                   style: ButtonStyle(
                     backgroundColor:

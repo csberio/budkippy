@@ -1,6 +1,8 @@
+import 'package:budkippy/routes.dart';
 import 'package:flutter/material.dart';
 
 import 'Login/login.dart';
+import 'constants.dart';
 
 void main() {
   runApp(MyApp());
@@ -13,9 +15,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        scaffoldBackgroundColor: kippyLightGrey,
       ),
       home: Login(),
+      routes: routes,
     );
   }
 }

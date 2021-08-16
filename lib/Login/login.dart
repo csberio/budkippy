@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-
 import 'components/signInForm.dart';
 
 class Login extends StatelessWidget {
   const Login({Key? key}) : super(key: key);
+
+  static const String routeName = '/login';
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +12,8 @@ class Login extends StatelessWidget {
     return Scaffold(
       body: ListView(
         children: [
-          Center(
+          Padding(
+            padding: EdgeInsets.only(top: size.height * 0.02),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
@@ -19,6 +21,9 @@ class Login extends StatelessWidget {
                 Image.asset(
                   'assets/logos/budkippy-logo-drkgrn.png',
                   width: size.width * 0.5,
+                ),
+                SizedBox(
+                  height: size.height * 0.07,
                 ),
                 Text("BudKippy",
                     style: TextStyle(
