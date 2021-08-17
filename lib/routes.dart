@@ -1,5 +1,6 @@
 import 'package:budkippy/Dashboard/dashboard.dart';
 import 'package:budkippy/Expense/expense.dart';
+import 'package:budkippy/Income/addIncome.dart';
 import 'package:budkippy/Income/income.dart';
 import 'package:budkippy/Login/login.dart';
 import 'package:budkippy/MainPage/mainpage.dart';
@@ -10,5 +11,6 @@ final Map<String, WidgetBuilder> routes = {
   MainPage.routeName: (context) => MainPage(),
   Dashboard.routeName: (context) => Dashboard(),
   Income.routeName: (context) => Income(),
+  AddIncome.routeName: (context) => AddIncome(incomeId: null),
   Expense.routeName: (context) => Expense()
 };

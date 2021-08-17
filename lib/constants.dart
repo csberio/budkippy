@@ -15,6 +15,15 @@ const kippyWarning = Colors.orange;
 const kippySuccess = Colors.greenAccent;
 const kippyInfo = Colors.lightBlue;
 
+class CustomDateTime {
+  static const _numDays = 100000000;
+
+  static DateTime get min =>
+      DateTime.fromMicrosecondsSinceEpoch(0).subtract(Duration(days: _numDays));
+  static DateTime get max =>
+      DateTime.fromMicrosecondsSinceEpoch(0).add(Duration(days: _numDays));
+}
+
 void showSnackBar(BuildContext context, String message, String actionLabel) {
   ScaffoldMessenger.of(context).showSnackBar(
     SnackBar(

@@ -1,7 +1,10 @@
 import 'package:budkippy/components/CardListItem.dart';
 import 'package:budkippy/constants.dart';
 import 'package:budkippy/viewModels/incomeViewModel.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+
+import 'addIncome.dart';
 
 class Income extends StatelessWidget {
   const Income({Key? key}) : super(key: key);
@@ -51,7 +54,9 @@ class Income extends StatelessWidget {
                     ),
                     child: GestureDetector(
                       onTap: () {
-                        print("hello world");
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (BuildContext context) =>
+                                AddIncome(incomeId: 0)));
                       },
                       child: Icon(
                         Icons.add,
