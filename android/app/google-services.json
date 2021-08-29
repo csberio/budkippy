@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "590667943073",
+    "project_id": "budkippy",
+    "storage_bucket": "budkippy.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:590667943073:android:385cf1530a657871aa34e0",
+        "android_client_info": {
+          "package_name": "com.example.budkippy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "590667943073-v2d9kakb2uga38s1mpspsc8o3la174o4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZrHyTgPqNzicRMdsbsoSBIvrBHaKaSXc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "590667943073-v2d9kakb2uga38s1mpspsc8o3la174o4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

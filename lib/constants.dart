@@ -15,6 +15,8 @@ const kippyWarning = Colors.orange;
 const kippySuccess = Colors.greenAccent;
 const kippyInfo = Colors.lightBlue;
 
+const String LongDateDisplay = 'dd/MMM/y h:mm a';
+
 class CustomDateTime {
   static const _numDays = 100000000;
 

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 import '../constants.dart';
 
@@ -54,7 +55,7 @@ class CardListItem extends StatelessWidget {
               child: Row(
                 children: [
                   Text(
-                    cardDate.toLocal().toString(),
+                    DateFormat(LongDateDisplay).format(cardDate),
                     style: TextStyle(
                       fontSize: 10,
                       color: Colors.grey,

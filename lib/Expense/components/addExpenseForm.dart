@@ -1,17 +1,18 @@
+import 'package:budkippy/DropDownList/incomeCategories.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
 
 import '../../constants.dart';
 
-class AddIncomeForm extends StatefulWidget {
-  const AddIncomeForm({Key? key}) : super(key: key);
+class AddExpenseForm extends StatefulWidget {
+  const AddExpenseForm({Key? key}) : super(key: key);
 
   @override
-  _AddIncomeFormState createState() => _AddIncomeFormState();
+  _AddExpenseFormState createState() => _AddExpenseFormState();
 }
 
-class _AddIncomeFormState extends State<AddIncomeForm> {
+class _AddExpenseFormState extends State<AddExpenseForm> {
   late FocusNode _fNCategory;
   late FocusNode _fnQuantity;
   late FocusNode _fnDateTime;
@@ -20,11 +21,11 @@ class _AddIncomeFormState extends State<AddIncomeForm> {
   final _formKey = GlobalKey<FormState>();
 
   final _dateTimeController = TextEditingController();
+  List<DropdownMenuItem<int>> _categoriesList = [];
 
   int? _category = 0;
   double? _quantity = 0;
   DateTime _date = DateTime.now();
-  TimeOfDay _time = TimeOfDay.now();
   DateTime _dateTime = new DateTime.now();
   String? _description = "";
 
@@ -37,6 +38,8 @@ class _AddIncomeFormState extends State<AddIncomeForm> {
     _fNDescription = FocusNode();
 
     _dateTimeController.text = formatDate(_dateTime);
+
+    getIncomeCategories();
   }
 
   @override
@@ -99,18 +102,17 @@ class _AddIncomeFormState extends State<AddIncomeForm> {
                   hintStyle: TextStyle(fontSize: 24),
                   prefixIcon: Icon(
                     Icons.attach_money,
-                    color:
-                        _fnQuantity.hasFocus ? kippyDarkGreenOne : Colors.grey,
+                    color: _fnQuantity.hasFocus ? kippyDanger : Colors.grey,
                     size: 24,
                   ),
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(15),
-                    borderSide: BorderSide(color: kippyDarkGreenOne),
+                    borderSide: BorderSide(color: kippyDanger),
                     gapPadding: 10,
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(15),
-                    borderSide: BorderSide(color: kippyDarkGreenOne),
+                    borderSide: BorderSide(color: kippyDanger),
                     gapPadding: 10,
                   ),
                   errorBorder: OutlineInputBorder(
@@ -156,18 +158,17 @@ class _AddIncomeFormState extends State<AddIncomeForm> {
                   hintStyle: TextStyle(fontSize: 18),
                   prefixIcon: Icon(
                     Icons.calendar_today,
-                    color:
-                        _fnDateTime.hasFocus ? kippyDarkGreenOne : Colors.grey,
+                    color: _fnDateTime.hasFocus ? kippyDanger : Colors.grey,
                     size: 24,
                   ),
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(15),
-                    borderSide: BorderSide(color: kippyDarkGreenOne),
+                    borderSide: BorderSide(color: kippyDanger),
                     gapPadding: 10,
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(15),
-                    borderSide: BorderSide(color: kippyDarkGreenOne),
+                    borderSide: BorderSide(color: kippyDanger),
                     gapPadding: 10,
                   ),
                   errorBorder: OutlineInputBorder(
@@ -195,16 +196,7 @@ class _AddIncomeFormState extends State<AddIncomeForm> {
               child: DropdownButtonFormField(
                 focusNode: _fNCategory,
                 value: 1001,
-                items: [
-                  DropdownMenuItem(
-                    child: Text("Miscellaneous"),
-                    value: 1001,
-                  ),
-                  DropdownMenuItem(
-                    child: Text("Salary"),
-                    value: 1002,
-                  ),
-                ],
+                items: _categoriesList,
                 onChanged: (value) {
                   _category = value as int?;
                 },
@@ -216,18 +208,17 @@ class _AddIncomeFormState extends State<AddIncomeForm> {
                   hintStyle: TextStyle(fontSize: 18),
                   prefixIcon: Icon(
                     Icons.category,
-                    color:
-                        _fNCategory.hasFocus ? kippyDarkGreenOne : Colors.grey,
+                    color: _fNCategory.hasFocus ? kippyDanger : Colors.grey,
                     size: 24,
                   ),
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(15),
-                    borderSide: BorderSide(color: kippyDarkGreenOne),
+                    borderSide: BorderSide(color: kippyDanger),
                     gapPadding: 10,
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(15),
-                    borderSide: BorderSide(color: kippyDarkGreenOne),
+                    borderSide: BorderSide(color: kippyDanger),
                     gapPadding: 10,
                   ),
                   errorBorder: OutlineInputBorder(
@@ -282,19 +273,17 @@ class _AddIncomeFormState extends State<AddIncomeForm> {
                   hintStyle: TextStyle(fontSize: 18),
                   prefixIcon: Icon(
                     Icons.description,
-                    color: _fNDescription.hasFocus
-                        ? kippyDarkGreenOne
-                        : Colors.grey,
+                    color: _fNDescription.hasFocus ? kippyDanger : Colors.grey,
                     size: 24,
                   ),
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(15),
-                    borderSide: BorderSide(color: kippyDarkGreenOne),
+                    borderSide: BorderSide(color: kippyDanger),
                     gapPadding: 10,
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(15),
-                    borderSide: BorderSide(color: kippyDarkGreenOne),
+                    borderSide: BorderSide(color: kippyDanger),
                     gapPadding: 10,
                   ),
                   errorBorder: OutlineInputBorder(
@@ -315,7 +304,7 @@ class _AddIncomeFormState extends State<AddIncomeForm> {
                 child: TextButton(
                   style: ButtonStyle(
                     backgroundColor:
-                        MaterialStateProperty.all<Color>(kippyDarkGreenOne),
+                        MaterialStateProperty.all<Color>(kippyDanger),
                     shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                       RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(15),
@@ -338,6 +327,19 @@ class _AddIncomeFormState extends State<AddIncomeForm> {
             ),
           ],
         ));
+  }
+
+  getIncomeCategories() {
+    final incomeCategories = IncomeCategories;
+
+    for (var item in incomeCategories) {
+      _categoriesList.add(
+        DropdownMenuItem(
+          child: Text(item.text),
+          value: item.value,
+        ),
+      );
+    }
   }
 
   Future _selectDateTime() async {

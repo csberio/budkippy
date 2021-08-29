@@ -1,3 +1,4 @@
+import 'package:budkippy/Expense/addExpense.dart';
 import 'package:budkippy/components/CardListItem.dart';
 import 'package:budkippy/constants.dart';
 import 'package:budkippy/viewModels/expenseViewModel.dart';
@@ -52,7 +53,9 @@ class Expense extends StatelessWidget {
                     ),
                     child: GestureDetector(
                       onTap: () {
-                        print("hello world");
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (BuildContext context) =>
+                                AddExpense(expenseId: 0)));
                       },
                       child: Icon(
                         Icons.add,

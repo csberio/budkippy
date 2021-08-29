@@ -1,19 +1,19 @@
-import 'package:budkippy/Income/components/addIncomeForm.dart';
+import 'package:budkippy/Expense/components/AddExpenseForm.dart';
 import 'package:flutter/material.dart';
 
 import '../constants.dart';
 
-class AddIncome extends StatefulWidget {
-  const AddIncome({Key? key, required this.incomeId}) : super(key: key);
+class AddExpense extends StatefulWidget {
+  const AddExpense({Key? key, required this.expenseId}) : super(key: key);
 
-  static String routeName = "/addIncome";
-  final int? incomeId;
+  static String routeName = "/addExpense";
+  final int? expenseId;
 
   @override
-  _AddIncomeState createState() => _AddIncomeState();
+  _AddExpenseState createState() => _AddExpenseState();
 }
 
-class _AddIncomeState extends State<AddIncome> {
+class _AddExpenseState extends State<AddExpense> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -41,7 +41,7 @@ class _AddIncomeState extends State<AddIncome> {
                       },
                       child: Icon(
                         Icons.arrow_back,
-                        color: kippyDarkGreenOne,
+                        color: kippyDanger,
                         size: 32,
                       ),
                     ),
@@ -51,17 +51,17 @@ class _AddIncomeState extends State<AddIncome> {
                       left: 20,
                     ),
                     child: Text(
-                      "Add Income",
+                      "Add Expense",
                       style: TextStyle(
                         fontSize: 24,
-                        color: kippyDarkGreenOne,
+                        color: kippyDanger,
                       ),
                     ),
                   ),
                 ],
               ),
             ),
-            AddIncomeForm(),
+            AddExpenseForm(),
           ],
         ),
       ),
